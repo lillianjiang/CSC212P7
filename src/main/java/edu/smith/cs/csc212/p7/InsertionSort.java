@@ -11,20 +11,7 @@ import java.util.List;
 public class InsertionSort {
 
 	/**
-	 * Swap items in a list!
-	 * @param items the list.
-	 * @param i swap the item at this index with the one at j.
-	 * @param j swap the item at this index with the one at i.
-	 */
-	public static void swap(List<Integer> items, int i, int j) {
-		assert(i != j);
-		int tmp = items.get(i);
-		items.set(i,  items.get(j));
-		items.set(j, tmp);
-	}
-	
-	/**
-	 * 
+	 * O(n log n)
 	 */
 	public static void insertionSort(List<Integer> input) {
 		List<Integer> sorted = new ArrayList<>();
@@ -34,33 +21,33 @@ public class InsertionSort {
 			
 			int index = binarysearch(num, sorted);
 			sorted.add(index, num);
+			//System.out.println(sorted);
 				
 		}
-		for(int i = 0 ; i<sorted.size();i++)
-			input.set(i, sorted.get(i));
+		input.addAll(sorted);
 		
 	}
+	/*
+	 * this should take O(log(n))
+	 */
 	public static int binarysearch(int num, List<Integer> sorted) {
-		boolean found = false;
 		int start = 0;
 		int end = sorted.size();
 		int mid = 0;
-		while(end>start && ! found) {
+		while(end>start) {
 			mid = (start+end)/2;
 			if(sorted.get(mid) == num) {
-				found = true;
+				return mid;
 			}
 			else{
 				if(sorted.get(mid) > num) 
-					end = mid-1;     
-				else if(sorted.get(mid) < num) 
+					end = mid;     
+				else
 					start = mid+1;     
 			}		
 		}
-		if(found)
-			return mid;
-		else 
-			return start;
+		
+		return start;
 	}
 	
 	

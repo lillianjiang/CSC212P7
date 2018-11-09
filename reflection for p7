@@ -1,0 +1,22 @@
+# reflection
+
+1. how to write binary search for different type of data structure
+
+2. While writing recrusive, it is important to differeniate when to return void, when to return something. How can we determine it ?
+
+3. citation is important!
+
+4. 	The following is for cut a doublelinkedlist to half since we dont have sublist in dll	
+			int count = 0;
+			for (int i : input) {
+				if (count < mid) {
+					left.addBack(i);
+				} else {
+					right.addBack(i);
+				}
+				count++;
+			}
+
+5. we should be clear in head that the pointer is an index or an integer in the list. *esp for selectionsort, i struggled a lot
+
+
